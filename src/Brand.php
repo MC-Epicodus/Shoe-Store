@@ -1,12 +1,9 @@
 <?php
 
-class myClass {
+class Brand extends Element {
 
-function myFunction ()
-{
 
-  return "from myFunction";
-}
+
 
 }
 
