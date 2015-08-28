@@ -19,6 +19,11 @@ class Element {
 
 	}
 
+	function getId()
+	{
+		return $this->id;
+	}
+
 	function setName($new_name)
 	{
 		$this->name = $new_name;
