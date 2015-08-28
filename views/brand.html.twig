@@ -7,13 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   <body>
-   
+   <h1> {{ brand.getName }} </h1>
    	<div class= "container">
 	   		<div>
 	   			<ul>
 	   		{%  if stores is not empty  %}
 				{% for store in stores %}
-			<li> <a href="/store/{{ store.getId }} ">{{ store.getName }} </a>  </li>
+			<li> <a href="/brand/{{ brand.getId }} ">{{ store.getName }} </a>  </li>
 
 				{%  endfor %}
 
@@ -21,17 +21,17 @@
 				</ul>
 	   		</div>
 
-		<form class="form-horizontal" action="/" method="post">
+		<form class="form-horizontal" action="/brand/{{ brand.getId }}" method="post">
 					<fieldset>
 
 					<!-- Form Name -->
-					<legend>Add Store</legend>
+					<legend>Add a Store</legend>
 
 					<!-- Text input-->
 					<div class="form-group">
-					  <label class="col-md-4 control-label" for="store_name">Store Name</label>  
+					  <label class="col-md-4 control-label" for="brand_name">Store Name</label>  
 					  <div class="col-md-4">
-					  <input id="store_name" name="store_name" type="text" placeholder="Add a store name" class="form-control input-md" required="">
+					  <input id="brand_name" name="brand_name" type="text" placeholder="Add a Brand name" class="form-control input-md" required="">
 					    
 					  </div>
 					</div>
@@ -46,7 +46,7 @@
 
 					</fieldset>
 		</form>
-<a href="/delete_all">Delete all Stores and Brands</a>
+<a href="/">See all Stores</a>
 
    </div>
   </body>

@@ -53,7 +53,7 @@ class Store extends Element {
 
        static function getAll()
 	       {
-	       		$ret_stores = $GLOBALS['DB']->query("SELECT * FROM stores ORDER BY name;");
+	       		$ret_stores = $GLOBALS['DB']->query("SELECT * FROM stores ORDER BY id DESC;");
 	       		$stores = array();
 	       		foreach ($ret_stores as $store) {
 	       			$name = $store['name'];
