@@ -65,10 +65,19 @@
             $test_store1->addBrand($test_brand);
 
             $this->assertEquals($test_store1->getBrands()[0],$test_brand);
+        }
 
+        function testUpdate()
+        {
+            $name1 = "A Brand Name";
+            $test_brand = new Brand($name1);
+            $test_brand->save();
 
+            $new_name = "A Brand new Brand Name";
+            $test_brand->update($new_name);
 
-
+            $result = Brand::find($test_brand->getId());
+            $this->assertEquals($result->getName(),$new_name);
         }
 
 
