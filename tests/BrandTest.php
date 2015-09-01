@@ -80,6 +80,38 @@
             $this->assertEquals($result->getName(),$new_name);
         }
 
+        function testDeleteAll()
+        {
+            $name1 = "A Brand Name";
+            $test_brand = new Brand($name1);
+            $test_brand->save();
+
+            $name2 = "A new Brand Name";
+            $test_brand2 = new Brand($name2);
+            $test_brand2->save();
+
+            Brand::deleteAll();
+
+            $this->assertEquals([],Brand::getAll());
+        }
+
+        function testDeleteOne()
+        {
+            $name1 = "A Brand Name";
+            $test_brand = new Brand($name1);
+            $test_brand->save();
+
+            $name2 = "A new Brand Name";
+            $test_brand2 = new Brand($name2);
+            $test_brand2->save();
+
+            $test_brand2->delete();
+
+            $this->assertEquals([$test_brand],Brand::getAll());
+
+
+        }
+
 
 
       }

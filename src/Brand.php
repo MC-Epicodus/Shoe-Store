@@ -40,7 +40,15 @@ class Brand extends Element {
 		$GLOBALS['DB']->exec("UPDATE brands SET name = '{$new_name}' WHERE id = {$this->getId()}; ");
 		$this->setName($new_name);
 	}
+	
+	function delete()
+	{
+		$GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getId()};");
+		$GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$this->getId()};");
+	}
 
+	
+//Static Functions
 	static function getAll()
 		{
 		$ret_brands = $GLOBALS['DB']->query("SELECT * FROM brands;");
@@ -54,6 +62,7 @@ class Brand extends Element {
 		return $brands;
 		}
 
+	
 	static function deleteAll()
 		{
 
