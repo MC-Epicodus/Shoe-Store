@@ -16,7 +16,7 @@
 
         $app->get("/", function() use ($app){
 
-                return $app['twig']->render('index.html.twig',array('stores' => Store::getAll()));
+                return $app['twig']->render('index.html2.twig',array('stores' => Store::getAll()));
         });
 
         $app->post("/", function() use ($app){
