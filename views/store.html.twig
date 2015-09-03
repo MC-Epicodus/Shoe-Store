@@ -10,14 +10,14 @@
    
    	<div class= "container">
 	   		<div>
-	   			<ul>
-	   		{%  if brands is not empty  %}
-				{% for brand in brands %}
-			<li> <a href="/brand/{{ brand.getId }} ">{{ brand.getName }} </a>  </li>
+		   		<ul>
+		   		{%  if brands is not empty  %}
+					{% for brand in brands %}
+						<li> <a href="/brand/{{ brand.getId }}">{{ brand.getName }}</a>  </li>
 
-				{%  endfor %}
+					{%  endfor %}
 
-	   		{% endif %}
+		   		{% endif %}
 				</ul>
 	   		</div>
 

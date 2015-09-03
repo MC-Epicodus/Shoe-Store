@@ -19,85 +19,11 @@ $ composer install
 
 Mysql for building the database.
 
-* Create a Database called shoes.
-* In phpmyadmin go to sql tab
-* copy and paste the code below
 
-```
--- ---
--- Globals
--- ---
+* In phpmyadmin make sure no database is currently selected and go to import tab
+* import shows_shoes_test.sql file from db folder
 
--- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
--- SET FOREIGN_KEY_CHECKS=0;
 
--- ---
--- Table 'stores'
--- 
--- ---
-
-DROP TABLE IF EXISTS `stores`;
-		
-CREATE TABLE `stores` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `name` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
--- ---
--- Table 'brands'
--- 
--- ---
-
-DROP TABLE IF EXISTS `brands`;
-		
-CREATE TABLE `brands` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `name` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
--- ---
--- Table 'stores_brands'
--- 
--- ---
-
-DROP TABLE IF EXISTS `stores_brands`;
-		
-CREATE TABLE `stores_brands` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `store_id` INTEGER NULL DEFAULT NULL,
-  `brand_id` INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
--- ---
--- Foreign Keys 
--- ---
-
-ALTER TABLE `stores_brands` ADD FOREIGN KEY (store_id) REFERENCES `stores` (`id`);
-ALTER TABLE `stores_brands` ADD FOREIGN KEY (brand_id) REFERENCES `brands` (`id`);
-
--- ---
--- Table Properties
--- ---
-
--- ALTER TABLE `stores` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `brands` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `stores_brands` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- ---
--- Test Data
--- ---
-
--- INSERT INTO `stores` (`id`,`name`) VALUES
--- ('','');
--- INSERT INTO `brands` (`id`,`name`) VALUES
--- ('','');
--- INSERT INTO `stores_brands` (`id`,`store_id`,`brand_id`) VALUES
--- ('','','');
-
-```
 _
 
 __

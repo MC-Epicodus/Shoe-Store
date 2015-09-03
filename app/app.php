@@ -16,7 +16,7 @@
 
         $app->get("/", function() use ($app){
 
-                return $app['twig']->render('index.html.twig',array('stores' => Store::getAll()));
+                return $app['twig']->render('index.html2.twig',array('stores' => Store::getAll()));
         });
 
         $app->post("/", function() use ($app){
@@ -57,7 +57,7 @@
             $store = new Store($_POST['store_name']);
             $store->save();
             $brand->addStore($store);
-            return $app['twig']->render('brand.html.twig',array('stores' => $store->getStores(), 'brand' => $brand));
+            return $app['twig']->render('brand.html.twig',array('stores' => $brand->getStores(), 'brand' => $brand));
         });
     return $app;
 
