@@ -12,27 +12,26 @@ class Brand extends Element {
 
 
 
-     function addStore()
+     function addStore($store)
       	{
-      			$GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$brand->getId()}, {$this->getId()});");
+      			$GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
       	}
 
 	function getStores()
 		{
-		$returned_brands = $GLOBALS['DB']->query("SELECT stores.* FROM brand
-		JOIN stores_brands ON (stores.id = stores_brands.store_id)
-		JOIN stores ON (stores_brands.brand_id = brands.id)
-		WHERE brand.id = {$this->getId()};");
+		$returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands
+													JOIN brands_stores ON (brands.id = brands_stores.brand_id)
+													JOIN stores ON (brands_stores.store_id = stores.id)
+													WHERE brands.id = {$this->getId()};");
 
-		//var_dump($returned_brands);
-		$brands = array();
-		foreach($returned_brands as $brand) {
-			$brand_name = $brand['name'];
-			$id = $brand['id'];
-			$new_brand = new Brand($brand_name, $id);
-			array_push($brands, $new_brand);
+		$stores = array();
+		foreach($returned_stores as $store) {
+			$store_name = $store['name'];
+			$store_id = $store['id'];
+			$new_store = new Store($store_name, $store_id);
+			array_push($stores, $new_store);
 			}
-		return $brands;
+		return $stores;
 		}
 
 	function update($new_name)
@@ -67,7 +66,7 @@ class Brand extends Element {
 		{
 
 			$GLOBALS['DB']->exec("DELETE FROM brands;");
-			$GLOBALS['DB']->exec("DELETE FROM stores_brands;");
+			$GLOBALS['DB']->exec("DELETE FROM brands_stores;");
 		}
 
 	static function find($search_id)
@@ -79,7 +78,7 @@ class Brand extends Element {
 			if($brand_id == $search_id) {
 			$found_brand = $brand;
 			}
-			}
+		}
 		return $found_brand;
 
 

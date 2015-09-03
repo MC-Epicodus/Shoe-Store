@@ -57,7 +57,7 @@
             $store = new Store($_POST['store_name']);
             $store->save();
             $brand->addStore($store);
-            return $app['twig']->render('brand.html.twig',array('stores' => $store->getStores(), 'brand' => $brand));
+            return $app['twig']->render('brand.html.twig',array('stores' => $brand->getStores(), 'brand' => $brand));
         });
     return $app;
 

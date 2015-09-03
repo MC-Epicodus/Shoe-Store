@@ -13,7 +13,7 @@
 	   			<ul>
 	   		{%  if stores is not empty  %}
 				{% for store in stores %}
-			<li> <a href="/brand/{{ brand.getId }} ">{{ store.getName }} </a>  </li>
+			<li> <a href="/store/{{ store.getId }} ">{{ store.getName }} </a>  </li>
 
 				{%  endfor %}
 
@@ -31,7 +31,7 @@
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="brand_name">Store Name</label>  
 					  <div class="col-md-4">
-					  <input id="brand_name" name="brand_name" type="text" placeholder="Add a Brand name" class="form-control input-md" required="">
+					  <input id="brand_name" name="store_name" type="text" placeholder="Add a Store name" class="form-control input-md" required="">
 					    
 					  </div>
 					</div>

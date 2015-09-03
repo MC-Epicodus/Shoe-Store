@@ -58,13 +58,23 @@
             $test_brand = new Brand($name1);
             $test_brand->save();
 
+            $brand_name2 = "A new Brand Name";
+            $test_brand2 = new Brand($brand_name2);
+            $test_brand2->save();
+
             $store_name1 = "KippersOnKrakkers";
             $test_store1 = new Store($store_name1);
             $test_store1->save();
 
-            $test_store1->addBrand($test_brand);
+            $name2 = "ballsack";
+            $test_store2 = new Store($name2);
+            $test_store2->save();
 
-            $this->assertEquals($test_store1->getBrands()[0],$test_brand);
+            $test_brand->addStore($test_store1);
+
+            $result = $test_brand->getStores();
+
+            $this->assertEquals($result,[$test_store1]);
         }
 
         function testUpdate()
@@ -111,6 +121,7 @@
 
 
         }
+
 
 
 
