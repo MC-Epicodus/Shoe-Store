@@ -1,0 +1,28 @@
+<form class="form-horizontal" action="/store/{{ store.getId }}" method="post">
+					<fieldset>
+
+					<!-- Form Name -->
+					<legend>Add a Brand</legend>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="brand_name">Brand Name</label>  
+					  <div class="col-md-4">
+					  <input id="brand_name" name="brand_name" type="text" placeholder="Add a Brand name" class="form-control input-md" required="">
+					    
+					  </div>
+					</div>
+
+					{% embed "brandForm.html.twig" %}
+					{% endembed %}
+
+					<!-- Button -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="button"></label>
+					  <div class="col-md-4">
+					    <button id="button" name="button" class="btn btn-primary">Button</button>
+					  </div>
+					</div>
+
+					</fieldset>
+		</form>

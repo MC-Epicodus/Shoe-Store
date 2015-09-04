@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+   
+   	<div class= "container">
+	   		<div>
+	   			<ul>
+	   		{%  if stores is not empty  %}
+				{% for store in stores %}
+			<li> <a href="/store/{{ store.getId }} ">{{ store.getName }} </a>  </li>
+
+				{%  endfor %}
+
+	   		{% endif %}
+				</ul>
+	   		</div>
+{% embed "addStoreForm.html.twig" %}
+
+{%  endembed %}
+
+<a href="/delete_all">Delete all Stores and Brands</a>
+
+   </div>
+  </body>
+</html>
